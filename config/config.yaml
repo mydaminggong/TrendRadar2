@@ -32,28 +32,100 @@ app:
 platforms:
   enabled: true                         # 是否启用热榜平台抓取
   sources:
+    # === 综合新闻媒体类 ===
     - id: "toutiao"
       name: "今日头条"
     - id: "baidu"
       name: "百度热搜"
-    - id: "wallstreetcn-hot"
-      name: "华尔街见闻"
     - id: "thepaper"
       name: "澎湃新闻"
-    - id: "bilibili-hot-search"
-      name: "bilibili 热搜"
-    - id: "cls-hot"
-      name: "财联社热门"
     - id: "ifeng"
       name: "凤凰网"
-    - id: "tieba"
-      name: "贴吧"
+    - id: "cankaoxiaoxi"
+      name: "参考消息"
+    - id: "sputniknewscn"
+      name: "卫星通讯社"
+    - id: "zaobao"
+      name: "联合早报"
+    - id: "mktnews"
+      name: "MKT新闻"
+    - id: "kaopu"
+      name: "靠谱新闻"
+  
+    # === 财经投资类 ===
+    - id: "wallstreetcn-hot"
+      name: "华尔街见闻 最热"
+    - id: "wallstreetcn-quick"
+      name: "华尔街见闻 快讯"
+    - id: "wallstreetcn-news"
+      name: "华尔街见闻 最新"
+    - id: "cls-hot"
+      name: "财联社热门"
+    - id: "gelonghui"
+      name: "格隆汇"
+    - id: "xueqiu"
+      name: "雪球"
+    - id: "jin10"
+      name: "金十数据"
+    - id: "fastbull"
+      name: "快讯通"
+  
+    # === 社交/短视频/娱乐类 ===
     - id: "weibo"
       name: "微博"
     - id: "douyin"
       name: "抖音"
+    - id: "bilibili-hot-search"
+      name: "bilibili 热搜"
+    - id: "tieba"
+      name: "贴吧"
     - id: "zhihu"
       name: "知乎"
+    - id: "hupu"
+      name: "虎扑"
+  
+    # === 科技类平台 ===
+    - id: "ithome"
+      name: "IT之家"
+    - id: "juejin"
+      name: "掘金"
+    - id: "github"
+      name: "GitHub"
+    - id: "hackernews"
+      name: "Hacker News"
+    - id: "solidot"
+      name: "Solidot"
+    - id: "v2ex"
+      name: "V2EX"
+    - id: "nowcoder"
+      name: "牛客网"
+    - id: "pcbeta"
+      name: "远景论坛"
+    - id: "sspai"
+      name: "少数派"
+    - id: "producthunt"
+      name: "ProductHunt"
+  
+    # === 其他/工具类 ===
+    - id: "chongbuluo"
+      name: "虫部落"
+  
+     NewsNow的信息源在11月20日更新：
+  
+      id: "tencent-hot"
+      name: "腾讯新闻 综合早报"
+      
+      id: "cls-telegraph"
+      name: "财联社 电报"
+      
+      id: "cls-depth"
+      name: "财联社 深度"
+      
+      id: "fastbull-express"
+      name: "法布财经 快讯"
+      
+      id: "fastbull-news"
+      name: "法布财经 头条"
 
 
 
@@ -132,7 +204,7 @@ rss:
 #    • 适用场景：避免重复信息干扰
 # ===============================================================
 report:
-  mode: "current"                     # 可选: daily | current | incremental
+  mode: "incremental"                 # 可选: daily | current | incremental
   display_mode: "keyword"             # 分组维度: keyword | platform
                                       # keyword: 按关键词分组显示（默认）
                                       # platform: 按平台/来源分组显示
@@ -230,7 +302,7 @@ notification:
   # 💡 想要精准定时？建议使用 Docker 部署在个人服务器上
   push_window:
     enabled: false                    # 是否启用推送时间窗口控制
-    start: "20:00"                    # 开始时间（北京时间）
+    start: "08:00"                    # 开始时间（北京时间）
     end: "22:00"                      # 结束时间（北京时间）
     once_per_day: true                # true=窗口内只推送一次，false=窗口内每次执行都推送
 
@@ -492,8 +564,8 @@ advanced:
   # 排序权重（用于重新排序不同平台的热搜）
   # 合起来等于 1
   weight:
-    rank: 0.6                         # 排名权重
-    frequency: 0.3                    # 频次权重
+    rank: 0.4                         # 排名权重
+    frequency: 0.5                    # 频次权重
     hotness: 0.1                      # 热度权重
 
   # 多账号限制
